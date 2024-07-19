@@ -30,6 +30,5 @@
     },
     "types": ["vitest/globals","vite-plugin-svgr/client","vite/client"]
   },
-  "include": ["src", "lib", "./.test"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["src", "lib", "./.test"]
 }

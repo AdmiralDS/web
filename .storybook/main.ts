@@ -10,5 +10,12 @@ const config: StorybookConfig = {
     name: '@storybook/react-vite',
     options: {},
   },
+  typescript: {
+    reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      // Filter out third-party props from node_modules except typings.
+      propFilter: (prop) => (prop.parent ? !/node_modules\/(?!@types)/.test(prop.parent.fileName) : true),
+    },
+  },
 };
 export default config;

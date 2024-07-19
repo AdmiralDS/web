@@ -1,6 +1,7 @@
+import type { ComponentPropsWithoutRef } from 'react';
 import './button.css';
 
-export interface ButtonProps {
+export type ButtonProps = {
   /**
    * Is this the principal call to action on the page?
    */
@@ -13,20 +14,12 @@ export interface ButtonProps {
    * How large should the button be?
    */
   size?: 'small' | 'medium' | 'large';
-  /**
-   * Button contents
-   */
-  label: string;
-  /**
-   * Optional click handler
-   */
-  onClick?: () => void;
-}
+} & ComponentPropsWithoutRef<'button'>;
 
 /**
  * Primary UI component
  */
-export const Button = ({ primary = false, size = 'medium', backgroundColor, label, ...props }: ButtonProps) => {
+export const Button = ({ primary = true, size = 'medium', backgroundColor, ...props }: ButtonProps) => {
   const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
   return (
     <button
@@ -34,10 +27,6 @@ export const Button = ({ primary = false, size = 'medium', backgroundColor, labe
       className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
       style={{ backgroundColor }}
       {...props}
-    >
-      {label}
-    </button>
+    />
   );
 };
-
-Button.displayName = 'Button';
