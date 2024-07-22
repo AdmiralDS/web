@@ -1,5 +1,6 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import './button.css';
+import styles from './button.module.css';
 
 export type ButtonProps = {
   /**
@@ -19,12 +20,19 @@ export type ButtonProps = {
 /**
  * Primary UI component
  */
-export const Button = ({ primary = true, size = 'medium', backgroundColor, ...props }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+export const Button = ({
+  type = 'button',
+  primary = false,
+  size = 'medium',
+  backgroundColor,
+  className,
+  ...props
+}: ButtonProps) => {
+  const mode = primary ? styles.primary : styles.secondary;
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
+      type={type}
+      className={['storybook-button', styles[size], mode, className].join(' ')}
       style={{ backgroundColor }}
       {...props}
     />
