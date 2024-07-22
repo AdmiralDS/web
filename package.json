@@ -1,6 +1,6 @@
 {
   "name": "@admiral-ds/web",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "bugs": {
     "url": "https://github.com/AdmiralDS/date-picker/issues"
   },
@@ -59,7 +59,7 @@
     "vite-plugin-lib-inject-css": "^2.1.1",
     "vite-plugin-svgr": "^4.2.0",
     "vite-tsconfig-paths": "^4.3.2",
-    "vitest": "^2.0.3"
+    "vitest": "^2.0.4"
   },
   "peerDependencies": {
     "react": "^17.0.0 || ^18.0.0",

@@ -20,4 +20,7 @@ export default defineConfig({
   build: {
     sourcemap: true,
   },
+  css: {
+    devSourcemap: true,
+  },
 });
