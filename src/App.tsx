@@ -1,14 +1,15 @@
+import type { ComponentPropsWithoutRef } from 'react';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import { Button } from '@admiral-ds/web';
 
-export function App() {
+export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);
 
   return (
-    <>
+    <div {...props}>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -19,7 +20,7 @@ export function App() {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <Button size="large" onClick={() => setCount((count) => count + 1)}>
+        <Button size="large" onClick={() => setCount((count) => count + 1)} primary>
           count is {count}
         </Button>
         <p>
@@ -27,6 +28,6 @@ export function App() {
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
-    </>
+    </div>
   );
 }

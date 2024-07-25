@@ -6,9 +6,8 @@ export default mergeConfig(
   defineConfig({
     test: {
       environment: 'happy-dom',
-      setupFiles: ['./.test/setup.ts'],
+      setupFiles: ['.vitest/setup.ts'],
       globals: true,
-      // server: { deps: { inline: ['@receter/my-component-library', '@admiral-ds/date-picker'] } },
     },
   }),
 );

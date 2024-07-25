@@ -35,5 +35,5 @@
       }
     ]
   },
-  "include": ["src", "lib", "./.test"]
+  "include": ["src", "lib", ".vitest"]
 }
