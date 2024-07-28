@@ -46,7 +46,7 @@ export default defineConfig({
         // https://rollupjs.org/configuration-options/#input
         glob
           .sync('lib/**/*.{ts,tsx}', {
-            ignore: ['lib/**/*.d.ts'],
+            ignore: ['lib/**/*.d.ts', 'lib/**/*.css.ts'],
           })
           .map((file) => [
             // 1. The name of the entry point
@@ -61,7 +61,7 @@ export default defineConfig({
         preserveModulesRoot: 'lib',
         interop: 'auto',
         chunkFileNames: 'chunks/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash][extname]',
+        assetFileNames: 'assets/[hash][extname]',
         entryFileNames: '[name].js',
       },
     },

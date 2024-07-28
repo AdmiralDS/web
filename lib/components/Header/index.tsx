@@ -1,5 +1,6 @@
 import { Button } from '#lib/Button';
 import './header.css';
+import { welcome } from './header.css.ts';
 import AcmeSVG from './Acme.svg?react';
 
 type User = {
@@ -23,7 +24,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }: HeaderProps
       <div>
         {user ? (
           <>
-            <span className="welcome">
+            <span className={welcome}>
               Welcome, <b>{user.name}</b>!
             </span>
             <Button size="small" onClick={onLogout} children="Log out" />

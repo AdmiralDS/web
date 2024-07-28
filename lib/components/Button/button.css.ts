@@ -1,5 +1,5 @@
 import { style, fallbackVar } from '@vanilla-extract/css';
-import { vars } from '#lib/theme.css';
+import { vars } from '#lib/theme.css.ts';
 
 export const buttonHover = style({
   ':hover': {
