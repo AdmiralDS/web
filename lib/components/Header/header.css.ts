@@ -1,5 +1,5 @@
 import { style } from '@vanilla-extract/css';
-import { vars } from '#lib/theme.css.ts';
+import { vars } from '#lib/theme/vars.css.ts';
 
 export const welcome = style({
   color: vars.color.Neutral_Neutral00,
