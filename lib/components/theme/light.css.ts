@@ -112,4 +112,5 @@ export const lightThemeColorMap = {
 
 export const lightThemeClassName = createTheme(vars, {
   color: lightThemeColorMap,
+  font: { fontFamily: 'VTB Group UI' },
 });

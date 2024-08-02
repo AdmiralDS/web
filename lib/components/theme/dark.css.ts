@@ -112,4 +112,5 @@ export const darkThemeColorMap = {
 
 export const darkThemeClassName = createTheme(vars, {
   color: darkThemeColorMap,
+  font: { fontFamily: 'VTB Group UI' },
 });
