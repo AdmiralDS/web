@@ -26,6 +26,7 @@
     "paths": {
       "#lib/*": ["./lib/components/*"],
       "#src/*": ["./src/*"],
+      "#public/*": ["./public/*"],
       "@admiral-ds/web": ["./lib/main"]
     },
     "types": ["vitest/globals", "vite-plugin-svgr/client", "vite/client", "@testing-library/jest-dom"],
@@ -35,5 +36,5 @@
       }
     ]
   },
-  "include": ["src", "lib", ".vitest"]
+  "include": ["src", "lib", "public", ".vitest"]
 }

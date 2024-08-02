@@ -1,9 +1,9 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
+import viteLogo from '#public/vite.svg';
 import './App.css';
-import { Button } from '@admiral-ds/web';
+import { Button, typography as T } from '@admiral-ds/web';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);
@@ -20,6 +20,8 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
+        <span className={T['Header/HL1']}>Крупный шрифт параграфа, может использоваться как подзаголовок</span>
+        <br />
         <Button size="large" onClick={() => setCount((count) => count + 1)} primary>
           count is {count}
         </Button>
