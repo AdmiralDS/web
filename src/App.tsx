@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { useState } from 'react';
 import reactLogo from './assets/react.svg';
-import viteLogo from '#public/vite.svg';
+import viteLogo from '/vite.svg?url';
 import './App.css';
 import { Button, typography as T } from '@admiral-ds/web';
 

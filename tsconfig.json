@@ -26,8 +26,8 @@
     "paths": {
       "#lib/*": ["./lib/components/*"],
       "#src/*": ["./src/*"],
-      "#public/*": ["./public/*"],
-      "@admiral-ds/web": ["./lib/main"]
+      "@admiral-ds/web": ["./lib/main"],
+      "/*": ["./public/*"]
     },
     "types": ["vitest/globals", "vite-plugin-svgr/client", "vite/client", "@testing-library/jest-dom"],
     "plugins": [
