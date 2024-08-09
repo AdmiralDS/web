@@ -1,6 +1,6 @@
 import { createGlobalThemeContract } from '@vanilla-extract/css';
 
-const noPrefixedColorNameToVar = {
+const unprefixedColorNameToVar = {
   Neutral_Neutral00: 'color-Neutral_Neutral00',
   Neutral_Neutral05: 'color-Neutral_Neutral05',
   Neutral_Neutral10: 'color-Neutral_Neutral10',
@@ -109,14 +109,21 @@ const noPrefixedColorNameToVar = {
   Teal_Teal80: 'color-Teal_Teal80',
 } as const;
 
-const noPrefixedFontNameToVar = {
+const unprefixedBorderRadiusToVar = {
+  Small: 'border-radius-s',
+  Medium: 'border-radius-m',
+  Large: 'border-radius-l',
+} as const;
+
+const unprefixedFontNameToVar = {
   fontFamily: 'font-family',
 } as const;
 
 export const vars = createGlobalThemeContract(
   {
-    color: noPrefixedColorNameToVar,
-    font: noPrefixedFontNameToVar,
+    color: unprefixedColorNameToVar,
+    font: unprefixedFontNameToVar,
+    borderRadius: unprefixedBorderRadiusToVar,
   },
   (value) => `admiral-${value}`,
 );
