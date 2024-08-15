@@ -119,11 +119,21 @@ const unprefixedFontNameToVar = {
   fontFamily: 'font-family',
 } as const;
 
+const unprefixedBoxShadowToVar = {
+  Shadow_02: 'box-shadow-02',
+  Shadow_04: 'box-shadow-04',
+  Shadow_08: 'box-shadow-08',
+  Shadow_12: 'box-shadow-12',
+  Shadow_16: 'box-shadow-16',
+  Shadow_Stroke: 'box-shadow-stroke',
+} as const;
+
 export const vars = createGlobalThemeContract(
   {
     color: unprefixedColorNameToVar,
     font: unprefixedFontNameToVar,
     borderRadius: unprefixedBorderRadiusToVar,
+    boxShadow: unprefixedBoxShadowToVar,
   },
   (value) => `admiral-${value}`,
 );

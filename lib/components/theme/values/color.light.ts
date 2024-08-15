@@ -106,3 +106,14 @@ export const color = {
   Teal_Teal70: '#005D5D',
   Teal_Teal80: '#004144',
 } as const;
+
+export const boxShadow = {
+  Shadow_02: '0px 0.9px 2px 0px rgba(0, 0, 0, 0.28)',
+  Shadow_04: '0px 1.6px 3.6px 0px rgba(0, 0, 0, 0.14),0px 0.2px 0.9px 0.3px rgba(0, 0, 0, 0.12)',
+  Shadow_08:
+    '0px 3.2px 9px 0px rgba(0, 0, 0, 0.16),0px 0.6px 1.8px 0px rgba(0, 0, 0, 0.1),0px -1.5px 6px 0px rgba(0, 0, 0, 0.06)',
+  Shadow_12:
+    '0px 0.8px 1.8px 0px rgba(0, 0, 0, 0.04),0px 4px 18px 0px rgba(0, 0, 0, 0.08),0px 1.2px 12px 0px rgba(0, 0, 0, 0.1)',
+  Shadow_16: '0px 6.4px 28px 0px rgba(0, 0, 0, 0.12),0px 1.2px 18px 0px rgba(0, 0, 0, 0.08)',
+  Shadow_Stroke: 'inset 0px -1px 0px 0px rgb(214, 216, 221)',
+} as const;
