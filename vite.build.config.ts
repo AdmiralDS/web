@@ -28,7 +28,9 @@ export default defineConfig({
     }),
     vanillaExtractPlugin(),
     tsconfigPaths(),
-    dts({ tsconfigPath: 'tsconfig.build.json' }),
+    dts({
+      tsconfigPath: 'tsconfig.build.json',
+    }),
   ],
   build: {
     sourcemap: true,
