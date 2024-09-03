@@ -4,3 +4,5 @@ export * from './lightTheme';
 export * from './darkTheme';
 export * from './themeVars';
 export * from './components/Input';
+export * from './components/Menu';
+export * from './components/Panel';
