@@ -1,4 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
+import { forwardRef } from 'react';
 import { focusBox, inputLine } from './styles.css.ts';
 
 export type FocusBoxProps = ComponentPropsWithoutRef<'div'> & {
@@ -6,9 +7,9 @@ export type FocusBoxProps = ComponentPropsWithoutRef<'div'> & {
   'data-size'?: 's' | 'm' | 'xl';
 };
 
-export function FocusBox({ className, ...props }: FocusBoxProps) {
+export const FocusBox = forwardRef<HTMLDivElement, FocusBoxProps>(({ className, ...props }, ref) => {
   props['data-size'] = props['data-size'] ?? 'm';
-  return <div className={[focusBox, className].join(' ')} {...props}></div>;
-}
+  return <div ref={ref} className={[focusBox, className].join(' ')} {...props}></div>;
+});
 
 export const inputlineClassName = inputLine;

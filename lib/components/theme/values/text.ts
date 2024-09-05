@@ -5,7 +5,6 @@ export const text = {
    * Большой заголовок для лендингов. Не применяется на мобильных устройствах.
    */
   'Header/HL1': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 72,
     fontWeight: 550,
@@ -17,7 +16,6 @@ export const text = {
    * Большой заголовок для лендингов. Не применяется на мобильных устройствах.
    */
   'Header/HL2': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 56,
     fontWeight: 550,
@@ -29,7 +27,6 @@ export const text = {
    * Большой заголовок для лендингов. Не применяется на мобильных устройствах.
    */
   'Header/HL3': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 48,
     fontWeight: 550,
@@ -41,7 +38,6 @@ export const text = {
    * Заголовок первого уровня. Используется в случаях, когда много пространства и используются компоненты размера XL
    */
   'Header/H1': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 40,
     fontWeight: 550,
@@ -53,7 +49,6 @@ export const text = {
    * Заголовок второго уровня. Используется в случаях, когда много пространства и используются компоненты размера XL
    */
   'Header/H2': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 34,
     fontWeight: 550,
@@ -63,7 +58,6 @@ export const text = {
   },
   /** Заголовок третьего уровня. Как правило, самый большой размер для стандартных интерфейсов размера M и S */
   'Header/H3': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 28,
     fontWeight: 550,
@@ -73,7 +67,6 @@ export const text = {
   },
   /** Заголовок четвертого уровня. Рекомендуемый максимальный размер заголовка для мобильных устройств. */
   'Header/H4': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 24,
     fontWeight: 550,
@@ -83,7 +76,6 @@ export const text = {
   },
   /** Заголовок пятого уровня */
   'Header/H5': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 20,
     fontWeight: 550,
@@ -93,7 +85,6 @@ export const text = {
   },
   /** Заголовок шестого уровня */
   'Header/H6': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 18,
     fontWeight: 550,
@@ -104,7 +95,6 @@ export const text = {
 
   /** Крупный шрифт параграфа, может использоваться как подзаголовок */
   'Subtitle/Subtitle 1': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 18,
     fontWeight: 400,
@@ -115,7 +105,6 @@ export const text = {
 
   /** Акцентированный текст, подзаголовок */
   'Subtitle/Subtitle 2': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 16,
     fontWeight: 550,
@@ -126,7 +115,6 @@ export const text = {
 
   /** Акцентированный текст, подзаголовок */
   'Subtitle/Subtitle 3': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 14,
     fontWeight: 550,
@@ -137,7 +125,6 @@ export const text = {
 
   /** Основной шрифт системы первого уровня для набора больших текстов */
   'Body/Body 1 Long': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 16,
     fontWeight: 400,
@@ -147,7 +134,6 @@ export const text = {
   },
   /** Шрифт системы первого уровня для набора коротких текстов в 1-2 строки (не обязательный сценарий) */
   'Body/Body 1 Short': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 16,
     fontWeight: 400,
@@ -157,7 +143,6 @@ export const text = {
   },
   /** Основной шрифт системы второго уровня для набора больших текстов */
   'Body/Body 2 Long': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 14,
     fontWeight: 400,
@@ -167,7 +152,6 @@ export const text = {
   },
   /** Шрифт системы второго уровня для набора коротких текстов в 1-2 строки (не обязательный сценарий) */
   'Body/Body 2 Short': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 14,
     fontWeight: 400,
@@ -177,7 +161,6 @@ export const text = {
   },
   /** Шрифт в кнопках первого уровня */
   'Button/Button 1': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 16,
     fontWeight: 500,
@@ -187,7 +170,6 @@ export const text = {
   },
   /** Шрифт в кнопках второго уровня */
   'Button/Button 2': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 14,
     fontWeight: 500,
@@ -197,7 +179,6 @@ export const text = {
   },
   /** Применяется в компонентах, сносках, примечаниях, счетчиках и тд. Не рекомендуется для набора текстов. */
   'Caption/Caption 1': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 12,
     fontWeight: 400,
@@ -207,7 +188,6 @@ export const text = {
   },
   /** Самый маленький шрифт системы. Не используется в компонентах системы, не рекомендуется для набора текстов. Использовать только в крайних случаях. */
   'Caption/Caption 2': {
-    color: vars.color.Neutral_Neutral90,
     fontFamily: vars.font.fontFamily,
     fontSize: 10,
     fontWeight: 400,

@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg?url';
 import './App.css';
@@ -10,13 +10,19 @@ import {
   inputlineClassName,
   panelClassName,
   Menu,
+  MenuItem,
   menuItemClassName,
+  Scrollbar,
 } from '@admiral-ds/web';
+import { Popover } from 'react-tiny-popover';
+
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);
+  const appRef = useRef(null);
+  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   return (
-    <div {...props}>
+    <div ref={appRef} style={{ height: '100vh', overflow: 'auto' }} {...props}>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -27,9 +33,39 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <FocusBox data-size="s">
-          <input className={inputlineClassName} />
-        </FocusBox>
+        <Popover
+          isOpen={isPopoverOpen}
+          padding={8}
+          parentElement={appRef.current || undefined}
+          containerClassName={panelClassName}
+          content={
+            <Menu data-size="s">
+              <Scrollbar>
+                <MenuItem>Default</MenuItem>
+                <MenuItem aria-disabled>Default</MenuItem>
+                <MenuItem>Default</MenuItem>
+                <MenuItem>Default</MenuItem>
+                <MenuItem aria-disabled>Default Default Default</MenuItem>
+                <MenuItem>Default</MenuItem>
+                <MenuItem>Default</MenuItem>
+                <MenuItem aria-disabled>Default</MenuItem>
+                <MenuItem>Default</MenuItem>
+              </Scrollbar>
+            </Menu>
+          }
+          positions={['bottom', 'top']} // preferred positions by priority
+          align="end"
+        >
+          <FocusBox data-size="s">
+            <input
+              className={inputlineClassName}
+              onFocus={() => setIsPopoverOpen(true)}
+              onBlur={() => setIsPopoverOpen(true)}
+            />
+          </FocusBox>
+        </Popover>
+        <br />
+        <br />
         <FocusBox data-size="m">
           <input className={inputlineClassName} />
         </FocusBox>
@@ -39,11 +75,9 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
         <br />
         <div className={panelClassName}>
           <Menu data-size="l">
-            <li className={menuItemClassName}>Default</li>
-            <li className={menuItemClassName} aria-disabled>
-              Default
-            </li>
-            <li className={menuItemClassName}>Default</li>
+            <MenuItem>Default</MenuItem>
+            <MenuItem aria-disabled>Default</MenuItem>
+            <MenuItem>Default</MenuItem>
           </Menu>
         </div>
         <br />
