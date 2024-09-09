@@ -32,6 +32,7 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
         </a>
       </div>
       <h1>Vite + React</h1>
+
       <div className="card">
         <Popover
           isOpen={isPopoverOpen}
@@ -40,7 +41,7 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
           containerClassName={panelClassName}
           content={
             <Menu data-size="s">
-              <Scrollbar>
+              <Scrollbar style={{ maxHeight: 100 }}>
                 <MenuItem>Default</MenuItem>
                 <MenuItem aria-disabled>Default</MenuItem>
                 <MenuItem>Default</MenuItem>

@@ -1,14 +1,17 @@
 import type { ComponentPropsWithoutRef } from 'react';
+import { forwardRef } from 'react';
 import { menuCN, menuItemCN } from './styles.css.ts';
 
 export type MenuProps = ComponentPropsWithoutRef<'menu'> & {
   /** Размеры компонента */
   'data-size'?: 's' | 'm' | 'l';
 };
-export function Menu({ className, ...props }: MenuProps) {
+export const Menu = forwardRef<HTMLMenuElement, MenuProps>(({ className, ...props }, ref) => {
   props['data-size'] = props['data-size'] ?? 'm';
-  return <menu role="menu" aria-orientation="vertical" className={[menuCN, className].join(' ')} {...props} />;
-}
+  return (
+    <menu ref={ref} role="menu" aria-orientation="vertical" className={[menuCN, className].join(' ')} {...props} />
+  );
+});
 
 export type MenuItemProps = ComponentPropsWithoutRef<'li'> & {
   // кастомные пропсы

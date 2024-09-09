@@ -4,12 +4,10 @@
 }
 
 .content {
-  /* Essential */
-  -ms-overflow-style: none;
   overflow: auto;
+
+  -ms-overflow-style: none;
   scrollbar-width: none;
-  /* Presentational */
-  /* height: 100px; */
 }
 
 .content::-webkit-scrollbar {
@@ -21,27 +19,17 @@
   right: 0;
   top: 0;
   bottom: 0;
-}
-
-.track-and-thumb {
-  display: block;
-  height: 100%;
-  position: relative;
   width: 10px;
 }
 
 .track {
-  bottom: 0;
+  box-sizing: border-box;
+  height: 100%;
   cursor: pointer;
-  position: absolute;
-  top: 0;
-
-  width: 10px;
 }
 
 .thumb {
   position: absolute;
-
   width: 6px;
   border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.16);

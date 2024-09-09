@@ -8,7 +8,8 @@ export const menuCN = style({
   padding: 0,
   margin: 0,
 
-  overflow: 'auto',
+  overflow: 'hidden',
+  position: 'relative',
 
   selectors: {
     '&:hover': {

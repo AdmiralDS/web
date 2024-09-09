@@ -1,7 +1,8 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import './style.css';
 
-export const Scrollbar = ({ children }: { children: React.ReactNode }) => {
+export const Scrollbar = ({ children, className, ...props }: React.ComponentPropsWithRef<'div'>) => {
+  const scrollAriaId = useMemo(() => `scroll-aria-${Math.random().toString(36).substring(2, 12)}`, []);
   const contentRef = useRef<HTMLDivElement>(null);
   const scrollTrackRef = useRef<HTMLDivElement>(null);
   const scrollThumbRef = useRef<HTMLDivElement>(null);
@@ -45,6 +46,7 @@ export const Scrollbar = ({ children }: { children: React.ReactNode }) => {
       });
       observer.current.observe(content);
       content.addEventListener('scroll', handleThumbPosition);
+      setTimeout(handleThumbPosition);
       return () => {
         observer.current?.unobserve(content);
         content.removeEventListener('scroll', handleThumbPosition);
@@ -113,44 +115,41 @@ export const Scrollbar = ({ children }: { children: React.ReactNode }) => {
     }
   }
 
-  //   function handleScrollButton(direction: 'up' | 'down') {
-  //     const { current: content } = contentRef;
-  //     if (content) {
-  //       const scrollAmount = direction === 'down' ? 200 : -200;
-  //       content.scrollBy({ top: scrollAmount, behavior: 'smooth' });
-  //     }
-  //   }
-
   return (
-    <div className="container">
-      <div className="content" style={{ maxHeight: 100 }} id="custom-scrollbars-content" ref={contentRef}>
+    <>
+      <div id={scrollAriaId} ref={contentRef} className={['content', className].join(' ')} {...props}>
         {children}
       </div>
-      <div className="scrollbar">
-        {/* <button className="button button--up" onClick={() => handleScrollButton('up')}>
-          ↑
-        </button> */}
-        <div className="track-and-thumb" role="scrollbar" aria-controls="custom-scrollbars-content">
-          <div
-            className="track"
-            ref={scrollTrackRef}
-            onClick={handleTrackClick}
-            style={{ cursor: isDragging ? 'grabbing' : undefined }}
-          ></div>
-          <div
-            className="thumb"
-            ref={scrollThumbRef}
-            onMouseDown={handleThumbMousedown}
-            style={{
-              height: `${thumbHeight}px`,
-              cursor: isDragging ? 'grabbing' : 'grab',
-            }}
-          ></div>
-        </div>
-        {/* <button className="button button--down" onClick={() => handleScrollButton('down')}>
-          ↓
-        </button> */}
+      <div className="scrollbar" role="scrollbar" aria-controls={scrollAriaId}>
+        <div
+          className="track"
+          ref={scrollTrackRef}
+          onClick={handleTrackClick}
+          style={{ cursor: isDragging ? 'grabbing' : undefined }}
+        ></div>
+        <div
+          className="thumb"
+          ref={scrollThumbRef}
+          onMouseDown={handleThumbMousedown}
+          style={{
+            height: `${thumbHeight}px`,
+            cursor: isDragging ? 'grabbing' : 'grab',
+          }}
+        ></div>
       </div>
-    </div>
+    </>
   );
 };
+
+// type ScrollBarsProps = {
+//   /** Some coment */
+//   some: string;
+// };
+
+// export function withScrollbars<T>(Component: React.ComponentType<T & React.RefAttributes<HTMLElement>>) {
+//   return forwardRef<HTMLElement, T & ScrollBarsProps>(({ some, ...componentProps }, ref) => {
+//     const contentRef = useRef<HTMLDivElement>(null);
+//     console.log(some);
+//     return <Component ref={refSetter(ref, contentRef)} {...componentProps} />;
+//   }) as React.ComponentType<T & ScrollBarsProps & React.RefAttributes<HTMLElement>>;
+// }
