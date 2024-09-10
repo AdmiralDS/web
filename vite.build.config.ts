@@ -29,7 +29,7 @@ export default defineConfig({
     vanillaExtractPlugin(),
     tsconfigPaths(),
     dts({
-      tsconfigPath: 'tsconfig.build.json',
+      tsconfigPath: resolve(__dirname, 'tsconfig.build.json'),
     }),
   ],
   build: {
