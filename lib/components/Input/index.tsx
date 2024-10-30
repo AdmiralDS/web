@@ -3,7 +3,7 @@ import { forwardRef } from 'react';
 import { focusBox, inputLine } from './styles.css.ts';
 
 export type FocusBoxProps = ComponentPropsWithoutRef<'div'> & {
-  /** Размеры компонента */
+  /** Размеры компонента, по умолчанию средний размер 'm'*/
   'data-size'?: 's' | 'm' | 'xl';
 };
 
