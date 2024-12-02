@@ -18,7 +18,7 @@ const compat = new FlatCompat({
 
 export default [
   {
-    ignores: ['**/*.svg', 'dist/'],
+    ignores: ['**/*.svg', 'dist/', 'storybook-static/'],
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
