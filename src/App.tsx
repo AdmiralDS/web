@@ -1,5 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import { useState, useRef } from 'react';
+import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg?url';
 import './App.css';
@@ -18,11 +18,11 @@ import { Popover } from 'react-tiny-popover';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);
-  const appRef = useRef(null);
+  const [element, setElement] = useState<HTMLDivElement | null>(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   return (
-    <div ref={appRef} style={{ height: '100vh', overflow: 'auto' }} {...props}>
+    <div ref={(elem) => setElement(elem)} style={{ height: '100vh', overflow: 'auto' }} {...props}>
       <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -37,7 +37,7 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
         <Popover
           isOpen={isPopoverOpen}
           padding={8}
-          parentElement={appRef.current || undefined}
+          parentElement={element ?? undefined}
           containerClassName={panelClassName}
           content={
             <Menu data-size="s">
@@ -60,8 +60,12 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
           <FocusBox data-size="s">
             <input
               className={inputlineClassName}
-              onFocus={() => setIsPopoverOpen(true)}
-              onBlur={() => setIsPopoverOpen(true)}
+              onFocus={() => {
+                setIsPopoverOpen(true);
+              }}
+              onBlur={() => {
+                setIsPopoverOpen(true);
+              }}
             />
           </FocusBox>
         </Popover>
@@ -102,7 +106,13 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
         </span>
 
         <br />
-        <Button size="large" onClick={() => setCount((count) => count + 1)} primary>
+        <Button
+          size="large"
+          onClick={() => {
+            setCount((count) => count + 1);
+          }}
+          primary
+        >
           count is {count}
         </Button>
         <p>

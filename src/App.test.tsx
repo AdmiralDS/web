@@ -1,4 +1,6 @@
-import { describe, test, expect, it, vi } from 'vitest';
+// Globally enabled in vitest.config.ts
+// import { describe, test, expect, it, vi, assert } from 'vitest';
+
 import { render, screen, fireEvent, getByText } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { App } from './App';
@@ -22,7 +24,9 @@ describe('<App />', () => {
 
   it('Click the button', () => {
     const wrapper = render(<App />);
-    const button = wrapper.container.querySelector('button') as HTMLButtonElement;
+    const button = wrapper.container.querySelector('button');
+
+    assert(button);
 
     // button mounts with count in 0
     expect(button.textContent).toBe('count is 0');

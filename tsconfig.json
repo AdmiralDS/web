@@ -36,5 +36,5 @@
       }
     ]
   },
-  "include": ["src", "lib", "public", ".vitest"]
+  "include": ["src", "lib", "public", "./.vitest/*", "./.storybook/*", "*.ts", "eslint.config.js"]
 }

@@ -43,7 +43,7 @@ export default defineConfig({
       formats: ['es'],
     },
     rollupOptions: {
-      external: Object.keys(pkg.peerDependencies || {}).map((dep) => new RegExp(`^${dep}`, 'i')),
+      external: Object.keys(pkg.peerDependencies).map((dep) => new RegExp(`^${dep}`, 'i')),
       input: Object.fromEntries(
         // https://rollupjs.org/configuration-options/#input
         glob
