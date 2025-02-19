@@ -43,6 +43,7 @@ const unprefixedColorNameToVar = {
   Opacity_DarkStaticHover: 'color-Opacity_DarkStaticHover',
   Opacity_DarkStaticFocus: 'color-Opacity_DarkStaticFocus',
   Opacity_DarkStaticPress: 'color-Opacity_DarkStaticPress',
+  Opacity_Neutral4: 'color-Opacity_Neutral4',
   Opacity_Neutral8: 'color-Opacity_Neutral8',
   Opacity_Neutral12: 'color-Opacity_Neutral12',
   Opacity_Neutral16: 'color-Opacity_Neutral16',
