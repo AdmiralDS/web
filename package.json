@@ -17,6 +17,7 @@
     "react",
     "library"
   ],
+  "type": "module",
   "exports": {
     ".": {
       "types": "./dist/main.d.ts",
@@ -25,7 +26,6 @@
   },
   "devDependencies": {
     "@admiral-ds/fonts": "^2.0.0",
-    "@eslint/compat": "^1.2.0",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.20.0",
     "@storybook/addon-essentials": "^8.3.5",
@@ -34,6 +34,8 @@
     "@storybook/react": "^8.3.5",
     "@storybook/react-vite": "^8.3.5",
     "@storybook/test": "^8.3.5",
+    "@svgr/plugin-jsx": "^8.1.0",
+    "@svgr/plugin-svgo": "^8.1.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
@@ -84,9 +86,7 @@
     "build-storybook": "storybook build",
     "build-lib": "vite -c vite.build.config.ts build"
   },
-  "type": "module",
-  "main": "./dist/main.js",
-  "types": "./dist/main.d.ts",
+  
   "sideEffects": [
     "**/*.css",
     "**/*.css.*"

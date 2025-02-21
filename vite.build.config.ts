@@ -21,6 +21,10 @@ export default defineConfig({
     svgr({
       svgrOptions: {
         dimensions: false,
+        plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx'],
+        svgoConfig: {
+          plugins: ['preset-default', 'removeTitle', 'removeDesc', 'removeDoctype', 'cleanupIds'],
+        },
         svgProps: {
           focusable: '{false}',
         },
