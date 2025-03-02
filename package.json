@@ -1,6 +1,6 @@
 {
   "name": "@admiral-ds/web",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "bugs": {
     "url": "https://github.com/AdmiralDS/date-picker/issues"
   },
@@ -20,10 +20,13 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/main.d.ts",
-      "import": "./dist/main.js"
+      "types": "./dist/types/main.d.ts",
+      "import": "./dist/esm/main.js",
+      "require": "./dist/cjs/main.js"
     }
   },
+  "main": "./dist/cjs/main.js",
+  "types": "./dist/types/main.d.ts",
   "devDependencies": {
     "@admiral-ds/fonts": "^2.0.0",
     "@eslint/eslintrc": "^3.1.0",
@@ -53,7 +56,6 @@
     "eslint-plugin-react-hooks": "^5.0.0",
     "eslint-plugin-react-refresh": "^0.4.12",
     "eslint-plugin-storybook": "^0.11.0",
-    "glob": "^11.0.0",
     "globals": "^15.14.0",
     "happy-dom": "^15.7.4 || ^16 || ^17",
     "react": "^18.3.1",
@@ -75,18 +77,17 @@
     "react-dom": "^17.0.0 || ^18.0.0"
   },
   "scripts": {
-    "prepare": "npm run build-lib",
+    "prepare": "npm run build:lib",
     "dev": "vite",
     "test": "vitest run",
     "lint": "eslint --report-unused-disable-directives  --fix",
     "preview": "vite preview",
-    "preview-storybook": "vite preview --outDir storybook-static",
+    "preview:storybook": "vite preview --outDir storybook-static",
     "storybook": "storybook dev -p 6006",
-    "build-app": "tsc -b && vite build",
-    "build-storybook": "storybook build",
-    "build-lib": "vite -c vite.build.config.ts build"
+    "build:app": "tsc -b && vite build",
+    "build:storybook": "storybook build",
+    "build:lib": "vite -c vite.build.config.ts build"
   },
-  
   "sideEffects": [
     "**/*.css",
     "**/*.css.*"

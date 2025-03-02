@@ -52,6 +52,7 @@ export const inputLine = style({
   padding: 0,
 
   ...text['Body/Body 1 Long'],
+  color: vars.color.Neutral_Neutral90,
   lineHeight: '40px',
 
   selectors: {
