@@ -1,6 +1,6 @@
+import { FocusBox, inputlineClassName } from '#src/components/Input';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-import { FocusBox, inputlineClassName } from '@admiral-ds/web';
 
 // More on how to set up stories at: https://storybook.js.org/docs/writing-stories#default-export
 const meta = {

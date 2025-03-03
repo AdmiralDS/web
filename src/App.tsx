@@ -3,18 +3,13 @@ import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg?url';
 import './App.css';
-import {
-  Button,
-  textStyle,
-  FocusBox,
-  inputlineClassName,
-  panelClassName,
-  Menu,
-  MenuItem,
-  menuItemClassName,
-  Scrollbar,
-} from '@admiral-ds/web';
+import { Button } from '#src/components/Button';
+import { FocusBox, inputlineClassName } from '#src/components/Input';
+import { textStyle } from '@admiral-ds/web';
 import { Popover } from 'react-tiny-popover';
+import { panelClassName } from './components/Panel';
+import { Menu, MenuItem, menuItemClassName } from './components/Menu';
+import { Scrollbar } from './components/Scrollbar';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);

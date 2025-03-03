@@ -1,7 +1,6 @@
+import { Header } from '#src/components/Header';
 import type { Meta, StoryObj } from '@storybook/react';
 import { fn } from '@storybook/test';
-
-import { Header } from '@admiral-ds/web';
 
 const meta = {
   title: 'Example/Header',

@@ -1,4 +1,4 @@
-import { Button } from '#lib/Button';
+import { Button } from '#src/components/Button';
 import './header.css';
 import { welcome } from './header.css.ts';
 import AcmeSVG from './Acme.svg?react';
