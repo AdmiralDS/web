@@ -26,3 +26,4 @@ storybook-static
 bun.lockb
 
 *storybook.log
+tsconfig.tsbuildinfo
