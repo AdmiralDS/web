@@ -27,3 +27,4 @@ bun.lockb
 
 *storybook.log
 tsconfig.tsbuildinfo
+package-lock.json
