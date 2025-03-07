@@ -5,13 +5,12 @@ import viteLogo from '/vite.svg?url';
 import './App.css';
 import { Button } from '#src/components/Button';
 import { FocusBox, inputlineClassName } from '#src/components/Input';
-import { textStyle } from '@admiral-ds/web';
+import { textStyle, createBorderRadius } from '@admiral-ds/web';
 import { Popover } from 'react-tiny-popover';
 import { panelClassName } from './components/Panel';
 import { Menu, MenuItem, menuItemClassName } from './components/Menu';
 import { Scrollbar } from './components/Scrollbar';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
-import { createBorderRadius } from '#lib/createBorderRadius';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);
