@@ -10,6 +10,8 @@ import { Popover } from 'react-tiny-popover';
 import { panelClassName } from './components/Panel';
 import { Menu, MenuItem, menuItemClassName } from './components/Menu';
 import { Scrollbar } from './components/Scrollbar';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+import { createBorderRadius } from '#lib/createBorderRadius';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);
@@ -52,7 +54,15 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
           positions={['bottom', 'top']} // preferred positions by priority
           align="end"
         >
-          <FocusBox data-size="s">
+          <FocusBox
+            data-size="xl"
+            style={
+              {
+                ...assignInlineVars(createBorderRadius(0)),
+                '--admiral-border-radius-m': '3px',
+              } as React.CSSProperties
+            }
+          >
             <input
               className={inputlineClassName}
               onFocus={() => {
