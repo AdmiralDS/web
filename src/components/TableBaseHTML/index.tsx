@@ -44,7 +44,7 @@ const renderSettingsMenu = ({ closeMenu }: PaneMenuProps) => <>{console.log(clos
 
 export const TableBaseHTML = () => {
   return (
-    <div className="table-wrapper">
+    <div className="tableWrapper">
       <GroupActionsPane renderSettingsMenu={renderSettingsMenu}>
         <TextButton text={'Action 1'} iconStart={<GovernmentOutline />} />
         <TextButton text={'Action 2'} iconStart={<TelegrammOutline />} />
@@ -52,32 +52,37 @@ export const TableBaseHTML = () => {
         <PaneSeparator />
         <TextButton text={'Action 4'} iconStart={<CardSolid />} />
       </GroupActionsPane>
-      <table style={{ maxHeight: 500, maxWidth: 980 }}>
+      <table style={{ maxHeight: 500, maxWidth: 980 }} className="tableStyle">
         <tbody>
-          {Array(4)
+          {Array(20)
             .fill(1)
             .map((_, rowIndex) => (
-              <tr key={`row_${rowIndex}`}>
+              <tr key={`row_${rowIndex}`} className="trStyle">
                 {Array(6)
                   .fill(1)
                   .map((_, colIndex) => {
                     if (colIndex + 1 === 1) {
                       return (
-                        <td key={`cell_${rowIndex}_${colIndex}`}>
+                        <td key={`cell_${rowIndex}_${colIndex}`} className="tdStyle">
                           <Checkbox />
                         </td>
                       );
                     }
-                    return <td key={`cell_${rowIndex}_${colIndex}`}>{`Cell ${rowIndex}_${colIndex + 1}`}</td>;
+                    return (
+                      <td
+                        key={`cell_${rowIndex}_${colIndex}`}
+                        className="tdStyle"
+                      >{`Cell ${rowIndex}_${colIndex + 1}`}</td>
+                    );
                   })}
               </tr>
             ))}
         </tbody>
-        <thead>
+        <thead className="theadStyle">
           {headerModel.map((row, rowIndex) => (
-            <tr key={`row_${rowIndex}`}>
+            <tr key={`row_${rowIndex}`} className="trStyle">
               {row.map((cell, colIndex) => (
-                <th key={`thcell_${rowIndex}_${colIndex}`} {...cell} />
+                <th key={`thcell_${rowIndex}_${colIndex}`} {...cell} className="thStyle" />
               ))}
             </tr>
           ))}

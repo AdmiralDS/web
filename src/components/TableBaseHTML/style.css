@@ -1,4 +1,4 @@
-.table-wrapper {
+.tableWrapper {
   overflow: auto;
   width: 100%;
   display: block;
@@ -7,30 +7,32 @@
   color: var(--admiral-color-Neutral_Neutral90);
 }
 
-table {
+.tableStyle {
   border-collapse: collapse;
   border-spacing: 0px;
 }
 
 /* фиксируем заголовок при вертикальном скролле */
-thead {
+.theadStyle {
   position: sticky;
   top: 1px;
 }
 
-tr:has(input[type='checkbox']:checked) td {
+.trStyle:has(input[type='checkbox']:checked) .tdStyle {
   background-color: var(--admiral-color-Primary_Primary20);
+  border-bottom: 1px solid var(--admiral-color-Primary_Primary20);
 }
 
-tr:hover td {
+.trStyle:hover .tdStyle {
   background-color: var(--admiral-color-Primary_Primary10);
 }
 
-td {
+.tdStyle {
   background-color: var(--admiral-color-Neutral_Neutral00);
+  padding: 12px;
 }
 
-th {
+.thStyle {
   /* ${(p) => p.theme.typography['Subtitle/Subtitle 3']} */
   padding: 10px 12px;
   background-color: var(--admiral-color-Neutral_Neutral05);
@@ -38,33 +40,28 @@ th {
   vertical-align: top;
 }
 
-td {
-  /* ${(p) => p.theme.typography['Body/Body 2 Short']} */
-  padding: 12px;
-}
-
-th,
-td {
+.thStyle,
+.tdStyle {
   border-bottom: 1px solid var(--admiral-color-Primary_Primary20);
   border-right: 1px solid var(--admiral-color-Primary_Primary20);
 }
 
 /* последняя колонка растягивается в ширину при необходимости */
-th:last-child {
+.thStyle:last-child {
   width: 100%;
   border-right: none;
 }
 
-td:last-child {
+.tdStyle:last-child {
   border-right: none;
 }
 
-tr:last-of-type td {
+.trStyle:last-of-type .tdStyle {
   border-bottom: none;
 }
 
 /* 1 колонка header'a фиксирована при горизонтальном скролле */
-th:first-child {
+.thStyle:first-child {
   position: sticky;
   left: 1px;
   background-color: var(--admiral-color-Neutral_Neutral05);
@@ -72,7 +69,7 @@ th:first-child {
 }
 
 /* 1 колонка фиксирована при горизонтальном скролле */
-td:first-child {
+.tdStyle:first-child {
   position: sticky;
   left: 1px;
   background-color: var(--admiral-color-Neutral_Neutral00);
