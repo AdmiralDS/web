@@ -51,17 +51,9 @@ export const thStyle = style({
   },
 });
 
-export const tdStyle = style({
-  backgroundColor: vars.color.Neutral_Neutral00,
-  padding: '12px',
-  borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
-  borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
-
+// Стиль для строки (tr)
+export const trStyle = style({
   selectors: {
-    '&:last-child': {
-      borderRight: 'none',
-    },
-    /* 1 колонка фиксирована при горизонтальном скролле */
     '&:first-child': {
       position: 'sticky',
       left: '1px',
@@ -70,22 +62,34 @@ export const tdStyle = style({
   },
 });
 
-export const trStyle = style({
+// Стиль для ячейки (td)
+export const tdStyle = style({
+  backgroundColor: vars.color.Neutral_Neutral00,
+  padding: '12px',
+  borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
+  borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
   selectors: {
-    // & заменяется на текущий класс trStyle
-    [`&:has(input[type="checkbox"]:checked) ${tdStyle}`]: {
-      backgroundColor: vars.color.Primary_Primary20,
-      borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
+    // Убираем правую границу у последней ячейки
+    '&:last-child': {
+      borderRight: 'none',
     },
-    [`&:hover ${tdStyle}`]: {
-      backgroundColor: vars.color.Primary_Primary10,
-    },
+    // Фиксированная колонка (первая ячейка)
     '&:first-child': {
       position: 'sticky',
       left: '1px',
       backgroundColor: vars.color.Neutral_Neutral00,
     },
-    [`&:last-of-type ${tdStyle} &`]: {
+    // При наведении на строку (tr) изменяем фон ячейки
+    [`${trStyle}:hover &`]: {
+      backgroundColor: vars.color.Primary_Primary10,
+    },
+    // Если в строке (tr) отмечен чекбокс, задаём другой фон и нижнюю границу для ячейки
+    [`${trStyle}:has(input[type="checkbox"]:checked) &`]: {
+      backgroundColor: vars.color.Primary_Primary20,
+      borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
+    },
+    // Если строка последняя, убираем нижнюю границу ячейки
+    [`${trStyle}:last-of-type &`]: {
       borderBottom: 'none',
     },
   },
