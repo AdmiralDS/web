@@ -1,16 +1,21 @@
 import { style } from '@vanilla-extract/css';
 import { vars } from '#lib/theme/vars.css.ts';
+import { text } from '#lib/theme/values/text';
 
 export const tableWrapper = style({
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '20px',
+  backgroundColor: vars.color.Neutral_Neutral00,
+});
+
+export const tableStyle = style({
   overflow: 'auto',
   width: '100%',
   display: 'block',
   margin: '0 auto',
   whiteSpace: 'nowrap',
   color: vars.color.Neutral_Neutral90,
-});
-
-export const tableStyle = style({
   borderCollapse: 'collapse',
   borderSpacing: '0px',
 });
@@ -21,35 +26,22 @@ export const theadStyle = style({
   top: '1px',
 });
 
-export const tdStyle = style({
-  backgroundColor: vars.color.Neutral_Neutral00,
-  padding: '12px',
-  borderBottom: `1px solid ${vars.color.Primary_Primary20}`,
-  borderRight: `1px solid ${vars.color.Primary_Primary20}`,
-  selectors: {
-    '&:last-child': {
-      borderRight: 'none',
-    },
-    '&:first-child': {
-      position: 'sticky',
-      left: '1px',
-      backgroundColor: vars.color.Neutral_Neutral00,
-    },
-  },
-});
-
 export const thStyle = style({
+  ...text['Subtitle/Subtitle 3'],
   padding: '10px 12px',
   backgroundColor: vars.color.Neutral_Neutral05,
   textAlign: 'left',
   verticalAlign: 'top',
-  borderBottom: `1px solid ${vars.color.Primary_Primary20}`,
-  borderRight: `1px solid ${vars.color.Primary_Primary20}`,
+  borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
+  borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
+
   selectors: {
+    /* последняя колонка растягивается в ширину при необходимости */
     '&:last-child': {
       width: '100%',
       borderRight: 'none',
     },
+    /* 1 колонка header'a фиксирована при горизонтальном скролле */
     '&:first-child': {
       position: 'sticky',
       left: '1px',
@@ -59,16 +51,41 @@ export const thStyle = style({
   },
 });
 
+export const tdStyle = style({
+  backgroundColor: vars.color.Neutral_Neutral00,
+  padding: '12px',
+  borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
+  borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
+
+  selectors: {
+    '&:last-child': {
+      borderRight: 'none',
+    },
+    /* 1 колонка фиксирована при горизонтальном скролле */
+    '&:first-child': {
+      position: 'sticky',
+      left: '1px',
+      backgroundColor: vars.color.Neutral_Neutral00,
+    },
+  },
+});
+
 export const trStyle = style({
   selectors: {
-    [`&:has(input[type="checkbox"]:checked) .${tdStyle}`]: {
+    // & заменяется на текущий класс trStyle
+    [`&:has(input[type="checkbox"]:checked) ${tdStyle}`]: {
       backgroundColor: vars.color.Primary_Primary20,
-      borderBottom: `1px solid ${vars.color.Primary_Primary20}`,
+      borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
     },
-    [`&:hover .${tdStyle}`]: {
+    [`&:hover ${tdStyle}`]: {
       backgroundColor: vars.color.Primary_Primary10,
     },
-    [`&:last-of-type .${tdStyle}`]: {
+    '&:first-child': {
+      position: 'sticky',
+      left: '1px',
+      backgroundColor: vars.color.Neutral_Neutral00,
+    },
+    [`&:last-of-type ${tdStyle} &`]: {
       borderBottom: 'none',
     },
   },
@@ -83,11 +100,4 @@ export const wrapper = style({
 export const container = style({
   display: 'flex',
   color: vars.color.Primary_Primary60Main,
-});
-
-export const tableWrapperContainer = style({
-  display: 'flex',
-  flexDirection: 'column',
-  padding: '20px',
-  backgroundColor: vars.color.Neutral_Neutral00,
 });
