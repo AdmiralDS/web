@@ -29,6 +29,8 @@
   "types": "./dist/types/main.d.ts",
   "devDependencies": {
     "@admiral-ds/fonts": "^2.0.0",
+    "@admiral-ds/icons": "^4.3.3",
+    "@admiral-ds/react-ui": "^8.35.0",
     "@eslint/eslintrc": "^3.1.0",
     "@eslint/js": "^9.20.0",
     "@storybook/addon-essentials": "^8.3.5",
@@ -94,5 +96,8 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "dependencies": {
+    "styled-components": "^6.1.15"
   }
 }

@@ -1,5 +1,7 @@
 import { StrictMode, useEffect, useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import { ThemeProvider } from 'styled-components';
+import { LIGHT_THEME, FontsVTBGroup, DropdownProvider } from '@admiral-ds/react-ui';
 import { App } from './App.tsx';
 import './index.css';
 import { darkThemeClassName, lightThemeClassName } from '@admiral-ds/web';
@@ -21,7 +23,12 @@ const Root = () => {
   }, []);
   return (
     <StrictMode>
-      <App className={isDark ? darkThemeClassName : lightThemeClassName} />
+      <ThemeProvider theme={LIGHT_THEME}>
+        <DropdownProvider>
+          <FontsVTBGroup />
+          <App className={isDark ? darkThemeClassName : lightThemeClassName} />
+        </DropdownProvider>
+      </ThemeProvider>
     </StrictMode>
   );
 };

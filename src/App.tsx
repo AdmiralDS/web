@@ -10,6 +10,7 @@ import { Popover } from 'react-tiny-popover';
 import { panelClassName } from './components/Panel';
 import { Menu, MenuItem, menuItemClassName } from './components/Menu';
 import { Scrollbar } from './components/Scrollbar';
+import { TableBaseHTML } from './components/TableBaseHTML';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [count, setCount] = useState(0);
@@ -115,6 +116,7 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
         </p>
       </div>
       <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <TableBaseHTML />
     </div>
   );
 }
