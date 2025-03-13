@@ -5,7 +5,7 @@ const config: StorybookConfig = {
   core: {
     disableTelemetry: true, // 👈 Disables telemetry
   },
-  addons: ['@storybook/addon-essentials', '@storybook/addon-themes'],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-themes', '@storybook/addon-interactions'],
   framework: {
     name: '@storybook/react-vite',
     options: {},

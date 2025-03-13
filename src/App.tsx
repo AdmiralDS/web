@@ -5,11 +5,12 @@ import viteLogo from '/vite.svg?url';
 import './App.css';
 import { Button } from '#src/components/Button';
 import { FocusBox, inputlineClassName } from '#src/components/Input';
-import { textStyle } from '@admiral-ds/web';
+import { textStyle, createBorderRadius } from '@admiral-ds/web';
 import { Popover } from 'react-tiny-popover';
 import { panelClassName } from './components/Panel';
 import { Menu, MenuItem, menuItemClassName } from './components/Menu';
 import { Scrollbar } from './components/Scrollbar';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { TableBaseHTML } from './components/TableBaseHTML';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
@@ -53,7 +54,15 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
           positions={['bottom', 'top']} // preferred positions by priority
           align="end"
         >
-          <FocusBox data-size="s">
+          <FocusBox
+            data-size="xl"
+            style={
+              {
+                ...assignInlineVars(createBorderRadius(0)),
+                '--admiral-border-radius-m': '3px',
+              } as React.CSSProperties
+            }
+          >
             <input
               className={inputlineClassName}
               onFocus={() => {
