@@ -12,8 +12,7 @@ import { Menu, MenuItem, menuItemClassName } from './components/Menu';
 import { Scrollbar } from './components/Scrollbar';
 import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { TableBaseHTML } from './components/TableBaseHTML';
-import { GroupActionsPane } from './components/GroupActionsPane';
-import { Checkbox, PaneMenuProps, PaneSeparator, T, TextButton } from '@admiral-ds/react-ui';
+import { Checkbox, GroupActionsPane, PaneMenuProps, PaneSeparator, T, TextButton } from '@admiral-ds/react-ui';
 
 import MoreHorizontalOutline from '@admiral-ds/icons/build/system/MoreHorizontalOutline.svg?react';
 import ArrowDownOutline from '@admiral-ds/icons/build/system/ArrowDownOutline.svg?react';

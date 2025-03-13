@@ -100,3 +100,19 @@ export const tdStyle = style({
     },
   },
 });
+
+export const optionsStyle = style({
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderRadius: '50%',
+  width: '40px',
+  height: '40px',
+
+  selectors: {
+    '&:hover': {
+      backgroundColor: vars.color.Neutral_Neutral20,
+      cursor: 'pointer',
+    },
+  },
+});

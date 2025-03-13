@@ -1,4 +1,5 @@
-import { tableStyle, theadStyle, thStyle, tdStyle, trStyle } from './styles.css.ts';
+import { tableStyle, theadStyle, thStyle, tdStyle, trStyle, optionsStyle } from './styles.css.ts';
+import MoreVerticalOutline from '@admiral-ds/icons/build/system/MoreVerticalOutline.svg?react';
 
 type TableBaseProps = {
   headerModel: React.ComponentProps<'th'>[][];
@@ -14,7 +15,11 @@ export const TableBaseHTML = ({ headerModel, bodyModel, ...props }: TableBasePro
             {row.map((cell, colIndex) => {
               return <td key={`cell_${rowIndex}_${colIndex}`} {...cell} className={tdStyle} />;
             })}
-            <td className={tdStyle}>иконка</td>
+            <td className={tdStyle}>
+              <div className={optionsStyle}>
+                <MoreVerticalOutline width={20} />
+              </div>
+            </td>
           </tr>
         ))}
       </tbody>
