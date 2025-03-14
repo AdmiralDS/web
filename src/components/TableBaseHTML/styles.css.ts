@@ -1,4 +1,4 @@
-import { style } from '@vanilla-extract/css';
+import { globalStyle, style } from '@vanilla-extract/css';
 import { vars } from '#lib/theme/vars.css.ts';
 import { text } from '#lib/theme/values/text';
 
@@ -13,19 +13,25 @@ export const tableStyle = style({
   borderCollapse: 'separate',
 });
 
+export const tBodyStyle = style({
+  backgroundColor: vars.color.Neutral_Neutral00,
+});
+
+export const global = globalStyle(`${tableStyle} :is(tr, th):not(.fixed)`, { backgroundColor: 'transparent' });
+
 // фиксируем заголовок при вертикальном скролле
 export const theadStyle = style({
   position: 'sticky',
   top: '0px',
+  backgroundColor: vars.color.Neutral_Neutral05,
 });
 
 // Стиль для строки (tr)
 export const trStyle = style({
   selectors: {
-    '&:first-child': {
+    '.fixed': {
       position: 'sticky',
       left: '0px',
-      backgroundColor: vars.color.Neutral_Neutral00,
     },
   },
 });
@@ -50,14 +56,20 @@ export const thStyle = style({
     [`${trStyle}:first-child > &:first-child`]: {
       position: 'sticky',
       left: '0px',
-      backgroundColor: vars.color.Neutral_Neutral05,
       width: '80px',
     },
-    [`${trStyle}:first-child > &:last-child`]: {
-      position: 'sticky',
-      opacity: '0.5',
-    },
   },
+});
+
+export const menuCell = style({
+  borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
+  borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
+  borderLeft: 'none',
+  background: 'transparent',
+  pointerEvents: 'none',
+  boxShadow: 'none',
+  position: 'sticky',
+  right: '0',
 });
 
 // Стиль для ячейки (td)
@@ -83,7 +95,6 @@ export const tdStyle = style({
     '&:first-child': {
       position: 'sticky',
       left: '0px',
-      backgroundColor: vars.color.Neutral_Neutral00,
     },
     // При наведении на строку (tr) изменяем фон ячейки
     [`${trStyle}:hover &`]: {

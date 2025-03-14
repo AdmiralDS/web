@@ -1,4 +1,14 @@
-import { tableStyle, theadStyle, thStyle, tdStyle, trStyle, optionsStyle } from './styles.css.ts';
+import {
+  tableStyle,
+  theadStyle,
+  thStyle,
+  tdStyle,
+  trStyle,
+  optionsStyle,
+  menuCell,
+  tBodyStyle,
+  global,
+} from './styles.css.ts';
 import MoreVerticalOutline from '@admiral-ds/icons/build/system/MoreVerticalOutline.svg?react';
 
 type TableBaseProps = {
@@ -8,14 +18,14 @@ type TableBaseProps = {
 
 export const TableBaseHTML = ({ headerModel, bodyModel, ...props }: TableBaseProps) => {
   return (
-    <table className={tableStyle} {...props}>
-      <tbody>
+    <table className={[tableStyle, global].join(' ')} {...props}>
+      <tbody className={tBodyStyle}>
         {bodyModel.map((row, rowIndex) => (
           <tr key={`row_${rowIndex}`} className={trStyle}>
-            {row.map((cell, colIndex) => {
-              return <td key={`cell_${rowIndex}_${colIndex}`} {...cell} className={tdStyle} />;
+            {row.map(({ className, ...cell }, colIndex) => {
+              return <td key={`cell_${rowIndex}_${colIndex}`} {...cell} className={[tdStyle, className].join(' ')} />;
             })}
-            <td className={tdStyle}>
+            <td className={menuCell}>
               <div className={optionsStyle}>
                 <MoreVerticalOutline width={20} />
               </div>
@@ -26,10 +36,10 @@ export const TableBaseHTML = ({ headerModel, bodyModel, ...props }: TableBasePro
       <thead className={theadStyle}>
         {headerModel.map((row, rowIndex) => (
           <tr key={`row_${rowIndex}`} className={trStyle}>
-            {row.map((cell, colIndex) => (
-              <th key={`thcell_${rowIndex}_${colIndex}`} {...cell} className={`${thStyle}`} />
+            {row.map(({ className, ...cell }, colIndex) => (
+              <th key={`thcell_${rowIndex}_${colIndex}`} {...cell} className={[thStyle, className].join(' ')} />
             ))}
-            {rowIndex === 0 && <th className={thStyle} rowSpan={2}></th>}
+            <th className={menuCell}></th>
           </tr>
         ))}
       </thead>

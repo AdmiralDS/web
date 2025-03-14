@@ -1,16 +1,16 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg?url';
+// import reactLogo from './assets/react.svg';
+// import viteLogo from '/vite.svg?url';
 import './App.css';
-import { Button } from '#src/components/Button';
-import { FocusBox, inputlineClassName } from '#src/components/Input';
-import { textStyle, createBorderRadius } from '@admiral-ds/web';
-import { Popover } from 'react-tiny-popover';
-import { panelClassName } from './components/Panel';
-import { Menu, MenuItem, menuItemClassName } from './components/Menu';
-import { Scrollbar } from './components/Scrollbar';
-import { assignInlineVars } from '@vanilla-extract/dynamic';
+// import { Button } from '#src/components/Button';
+// import { FocusBox, inputlineClassName } from '#src/components/Input';
+// import { textStyle, createBorderRadius } from '@admiral-ds/web';
+// import { Popover } from 'react-tiny-popover';
+// import { panelClassName } from './components/Panel';
+// import { Menu, MenuItem, menuItemClassName } from './components/Menu';
+// import { Scrollbar } from './components/Scrollbar';
+// import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { TableBaseHTML } from './components/TableBaseHTML';
 import { Checkbox, GroupActionsPane, PaneMenuProps, PaneSeparator, T, TextButton } from '@admiral-ds/react-ui';
 
@@ -25,7 +25,7 @@ import { tableWrapper, container, wrapper } from './App.styles.css.ts';
 
 const headerModel = [
   [
-    { rowSpan: 2, children: <Checkbox /> },
+    { rowSpan: 2, children: <Checkbox />, className: 'fixed' },
     { rowSpan: 2, children: <T font="Subtitle/Subtitle 3">Long column name two lines</T> },
     { colSpan: 2, children: <T font="Subtitle/Subtitle 3">Column title</T> },
     { colSpan: 2, children: <T font="Subtitle/Subtitle 3">Column title</T> },
@@ -63,7 +63,7 @@ const bodyModel = [
         .fill(1)
         .map((_, colIndex) => {
           if (colIndex + 1 === 1) {
-            return { children: <Checkbox /> };
+            return { children: <Checkbox />, className: 'fixed' };
           }
           return { children: `Cell ${rowIndex}_${colIndex + 1}` };
         }),
@@ -75,15 +75,15 @@ function createBodyModel(): React.ComponentProps<'td'>[][] {
 }
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
-  const [count, setCount] = useState(0);
+  // const [count, setCount] = useState(0);
   const [element, setElement] = useState<HTMLDivElement | null>(null);
-  const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  // const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   const renderSettingsMenu = ({ closeMenu }: PaneMenuProps) => <>{console.log(closeMenu)}</>;
 
   return (
     <div ref={(elem) => setElement(elem)} style={{ height: '100vh', overflow: 'auto' }} {...props}>
-      <div>
+      {/* <div>
         <a href="https://vitejs.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />
         </a>
@@ -187,7 +187,7 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
+      <p className="read-the-docs">Click on the Vite and React logos to learn more</p> */}
       <div className={tableWrapper}>
         <GroupActionsPane renderSettingsMenu={renderSettingsMenu}>
           <TextButton text={'Action 1'} iconStart={<GovernmentOutline />} />
