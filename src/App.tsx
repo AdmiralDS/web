@@ -1,16 +1,5 @@
 import type { ComponentPropsWithoutRef } from 'react';
-import { useState } from 'react';
-// import reactLogo from './assets/react.svg';
-// import viteLogo from '/vite.svg?url';
 import './App.css';
-// import { Button } from '#src/components/Button';
-// import { FocusBox, inputlineClassName } from '#src/components/Input';
-// import { textStyle, createBorderRadius } from '@admiral-ds/web';
-// import { Popover } from 'react-tiny-popover';
-// import { panelClassName } from './components/Panel';
-// import { Menu, MenuItem, menuItemClassName } from './components/Menu';
-// import { Scrollbar } from './components/Scrollbar';
-// import { assignInlineVars } from '@vanilla-extract/dynamic';
 import { TableBaseHTML } from './components/TableBaseHTML';
 import { Checkbox, GroupActionsPane, PaneMenuProps, PaneSeparator, T, TextButton } from '@admiral-ds/react-ui';
 

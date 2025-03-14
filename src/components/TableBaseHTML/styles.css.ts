@@ -47,13 +47,11 @@ export const thStyle = style({
     '&:last-child': {
       width: '100%',
       right: '0',
-      borderLeft: `1px solid ${vars.color.Neutral_Neutral20}`,
     },
     /* 1 колонка header'a фиксирована при горизонтальном скролле */
     [`${trStyle}:first-child > &:first-child`]: {
       position: 'sticky',
       left: '0px',
-      width: '80px',
     },
   },
 });
@@ -61,6 +59,14 @@ export const thStyle = style({
 export const menuCell = style({
   position: 'sticky',
   right: '0',
+  selectors: {
+    [`&&`]: {
+      backgroundColor: 'transparent',
+    },
+    [`${trStyle}:hover &`]: {
+      backgroundColor: 'inherit',
+    },
+  },
 });
 
 // Стиль для ячейки (td)
@@ -83,6 +89,11 @@ export const tdStyle = style({
     // Если строка последняя, убираем нижнюю границу ячейки
     [`${trStyle}:last-of-type &`]: {
       borderBottom: 'none',
+    },
+
+    // Убираем бордер если следуящая ячейка меню
+    [`&:has(+ ${menuCell})`]: {
+      borderRight: 'none',
     },
   },
 });
