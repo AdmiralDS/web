@@ -11,6 +11,7 @@ import AlertOutline from '@admiral-ds/icons/build/category/AlertOutline.svg?reac
 import CardSolid from '@admiral-ds/icons/build/finance/CardSolid.svg?react';
 
 import { container, wrapper } from './App.styles.css.ts';
+import { vars } from '@admiral-ds/web';
 
 const headerModel = [
   [
@@ -67,7 +68,7 @@ export function App(props: ComponentPropsWithoutRef<'div'>) {
   const renderSettingsMenu = ({ closeMenu }: PaneMenuProps) => <>{console.log(closeMenu)}</>;
 
   return (
-    <div {...props}>
+    <div {...props} style={{ backgroundColor: vars.color.Opacity_Neutral4, paddingBlock: 16, paddingInline: 40 }}>
       <GroupActionsPane renderSettingsMenu={renderSettingsMenu}>
         <TextButton text={'Action 1'} iconStart={<GovernmentOutline />} />
         <TextButton text={'Action 2'} iconStart={<TelegrammOutline />} />

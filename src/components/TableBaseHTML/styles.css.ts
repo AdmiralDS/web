@@ -11,6 +11,7 @@ export const tableStyle = style({
   color: vars.color.Neutral_Neutral90,
   borderSpacing: '0px',
   borderCollapse: 'separate',
+  border: `1px solid ${vars.color.Neutral_Neutral20}`,
 });
 
 // globalStyle(`${tableStyle} :is(tr, th):not(.fixed)`, { backgroundColor: 'transparent' });
@@ -20,21 +21,32 @@ export const theadStyle = style({
   position: 'sticky',
   top: '0px',
   backgroundColor: vars.color.Neutral_Neutral05,
+  ...text['Subtitle/Subtitle 3'],
 });
 
 export const tBodyStyle = style({
   backgroundColor: vars.color.Neutral_Neutral00,
+  ...text['Body/Body 2 Short'],
 });
 
 // Стиль для строки (tr)
 export const trStyle = style({
   backgroundColor: vars.color.Neutral_Neutral00,
+  selectors: {
+    // Hover над строкой
+    [`&:hover`]: {
+      backgroundColor: vars.color.Primary_Primary10,
+    },
+    // Если в строке (tr) отмечен чекбокс, задаём другой фон
+    [`&:not(:hover):has(input[type="checkbox"]:checked)`]: {
+      backgroundColor: vars.color.Primary_Primary20,
+    },
+  },
 });
 
 globalStyle(`${tableStyle} .fixed`, { position: 'sticky', left: '0px' });
 
 export const thStyle = style({
-  ...text['Subtitle/Subtitle 3'],
   padding: '10px 12px',
   backgroundColor: vars.color.Neutral_Neutral05,
   textAlign: 'left',
@@ -59,9 +71,11 @@ export const thStyle = style({
 export const menuCell = style({
   position: 'sticky',
   right: '0',
+
   selectors: {
     [`&&`]: {
       backgroundColor: 'transparent',
+      padding: 0,
     },
     [`${trStyle}:hover &`]: {
       backgroundColor: 'inherit',
@@ -71,29 +85,26 @@ export const menuCell = style({
 
 // Стиль для ячейки (td)
 export const tdStyle = style({
-  padding: '12px',
+  boxSizing: 'border-box',
+  height: 40,
+  padding: '10px 13px',
   backgroundColor: 'inherit',
-  borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
-  borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
+  boxShadow: `inset -1px -1px ${vars.color.Neutral_Neutral20}`,
+  // borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
+  // borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
   selectors: {
-    // Hover над строкой
-    [`${trStyle}:hover &`]: {
-      backgroundColor: vars.color.Primary_Primary10,
-    },
-
-    // Если в строке (tr) отмечен чекбокс, задаём другой фон
-    [`${trStyle}:has(input[type="checkbox"]:checked) &`]: {
-      backgroundColor: vars.color.Primary_Primary20,
-    },
-
     // Если строка последняя, убираем нижнюю границу ячейки
     [`${trStyle}:last-of-type &`]: {
-      borderBottom: 'none',
+      boxShadow: `inset -1px 0 ${vars.color.Neutral_Neutral20}`,
     },
 
     // Убираем бордер если следуящая ячейка меню
     [`&:has(+ ${menuCell})`]: {
-      borderRight: 'none',
+      boxShadow: `inset 0 -1px ${vars.color.Neutral_Neutral20}`,
+    },
+
+    [`${trStyle}:last-of-type &:has(+ ${menuCell})`]: {
+      boxShadow: 'none',
     },
   },
 });
@@ -103,8 +114,8 @@ export const optionsStyle = style({
   alignItems: 'center',
   justifyContent: 'center',
   borderRadius: '50%',
-  width: '40px',
-  height: '40px',
+  width: '32px',
+  height: '32px',
   visibility: 'hidden',
   selectors: {
     '&:hover': {
