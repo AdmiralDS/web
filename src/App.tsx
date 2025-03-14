@@ -12,11 +12,16 @@ import CardSolid from '@admiral-ds/icons/build/finance/CardSolid.svg?react';
 
 import { container, wrapper } from './App.styles.css.ts';
 import { vars } from '@admiral-ds/web';
+import { alignRight } from './components/TableBaseHTML/styles.css.ts';
 
 const headerModel = [
   [
     { rowSpan: 2, children: <Checkbox />, className: 'fixed' },
-    { rowSpan: 2, children: <T font="Subtitle/Subtitle 3">Long column name two lines</T> },
+    {
+      rowSpan: 2,
+      children: <T font="Subtitle/Subtitle 3">Long column name two lines</T>,
+      style: { minWidth: 124 },
+    },
     { colSpan: 2, children: <T font="Subtitle/Subtitle 3">Column title</T> },
     { colSpan: 2, children: <T font="Subtitle/Subtitle 3">Column title</T> },
   ],
@@ -52,10 +57,10 @@ const bodyModel = [
       Array(6)
         .fill(1)
         .map((_, colIndex) => {
-          if (colIndex + 1 === 1) {
+          if (colIndex === 0) {
             return { children: <Checkbox />, className: 'fixed' };
           }
-          return { children: `Cell ${rowIndex}_${colIndex + 1}` };
+          return { children: `Cell ${rowIndex}_${colIndex + 1}`, className: colIndex === 4 ? alignRight : '' };
         }),
     ),
 ] satisfies React.ComponentProps<'td'>[][];

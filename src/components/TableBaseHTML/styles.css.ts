@@ -7,14 +7,11 @@ export const tableStyle = style({
   width: '100%',
   display: 'block',
   margin: '0 auto',
-  whiteSpace: 'nowrap',
   color: vars.color.Neutral_Neutral90,
   borderSpacing: '0px',
   borderCollapse: 'separate',
   border: `1px solid ${vars.color.Neutral_Neutral20}`,
 });
-
-// globalStyle(`${tableStyle} :is(tr, th):not(.fixed)`, { backgroundColor: 'transparent' });
 
 // фиксируем заголовок при вертикальном скролле
 export const theadStyle = style({
@@ -25,6 +22,7 @@ export const theadStyle = style({
 });
 
 export const tBodyStyle = style({
+  whiteSpace: 'nowrap',
   backgroundColor: vars.color.Neutral_Neutral00,
   ...text['Body/Body 2 Short'],
 });
@@ -46,24 +44,29 @@ export const trStyle = style({
 
 globalStyle(`${tableStyle} .fixed`, { position: 'sticky', left: '0px' });
 
+export const alignRight = style({
+  textAlign: 'right',
+});
+
 export const thStyle = style({
   padding: '10px 12px',
   backgroundColor: vars.color.Neutral_Neutral05,
   textAlign: 'left',
   verticalAlign: 'top',
-  borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
-  borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
-
+  boxShadow: `inset -1px -1px ${vars.color.Neutral_Neutral20}`,
   selectors: {
     /* последняя колонка растягивается в ширину при необходимости */
     '&:last-child': {
       width: '100%',
-      right: '0',
     },
     /* 1 колонка header'a фиксирована при горизонтальном скролле */
     [`${trStyle}:first-child > &:first-child`]: {
       position: 'sticky',
       left: '0px',
+    },
+    [`&:last-of-type`]: {
+      // убираем бордер справа
+      boxShadow: `inset 0 -1px ${vars.color.Neutral_Neutral20}`,
     },
   },
 });
@@ -71,7 +74,6 @@ export const thStyle = style({
 export const menuCell = style({
   position: 'sticky',
   right: '0',
-
   selectors: {
     [`&&`]: {
       backgroundColor: 'transparent',
@@ -90,20 +92,27 @@ export const tdStyle = style({
   padding: '10px 13px',
   backgroundColor: 'inherit',
   boxShadow: `inset -1px -1px ${vars.color.Neutral_Neutral20}`,
-  // borderBottom: `1px solid ${vars.color.Neutral_Neutral20}`,
-  // borderRight: `1px solid ${vars.color.Neutral_Neutral20}`,
   selectors: {
     // Если строка последняя, убираем нижнюю границу ячейки
     [`${trStyle}:last-of-type &`]: {
       boxShadow: `inset -1px 0 ${vars.color.Neutral_Neutral20}`,
     },
 
-    // Убираем бордер если следуящая ячейка меню
+    // Eсли это последняя ячейка перед меню...
     [`&:has(+ ${menuCell})`]: {
+      // убираем бордер справа
+      boxShadow: `inset 0 -1px ${vars.color.Neutral_Neutral20}`,
+      // растягиваем максимально
+      width: '100%',
+    },
+    [`&:last-of-type`]: {
+      // убираем бордер справа
       boxShadow: `inset 0 -1px ${vars.color.Neutral_Neutral20}`,
     },
-
     [`${trStyle}:last-of-type &:has(+ ${menuCell})`]: {
+      boxShadow: 'none',
+    },
+    [`${trStyle}:last-of-type &:last-of-type`]: {
       boxShadow: 'none',
     },
   },
