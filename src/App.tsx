@@ -2,13 +2,14 @@ import type { ComponentPropsWithoutRef } from 'react';
 import { useState } from 'react';
 import './App.css';
 import Dropdown from './components/Dropdown';
+import { Button } from './components/Button';
 
 export function App(props: ComponentPropsWithoutRef<'div'>) {
   const [, setElement] = useState<HTMLDivElement | null>(null);
 
   return (
     <div ref={(elem) => setElement(elem)} style={{ height: '100vh', overflow: 'auto' }} {...props}>
-      <Dropdown position="left-center">
+      <Dropdown position="left-center" targetElement={<Button>Открыть</Button>}>
         <div
           style={{
             padding: '12px 16px',

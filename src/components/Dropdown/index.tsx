@@ -17,12 +17,12 @@ export type DropdownPosition =
 
 interface DropdownProps {
   position?: DropdownPosition;
-  // targetElement: Element | React.RefObject<Element>;
+  targetElement: ReactElement<HTMLElement>;
   children: ReactElement;
 }
 
-export default function Dropdown({ position = 'bottom-left', children }: DropdownProps) {
-  const buttonRef = useRef<HTMLButtonElement>(null);
+export default function Dropdown({ position = 'bottom-left', targetElement, children }: DropdownProps) {
+  const buttonRef = useRef<HTMLDivElement>(null);
   const popoverRef = useRef<HTMLDivElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -185,6 +185,7 @@ export default function Dropdown({ position = 'bottom-left', children }: Dropdow
 
   const togglePopover = (e: React.MouseEvent) => {
     e.stopPropagation();
+
     if (isOpen) {
       hidePopover();
     } else {
@@ -194,9 +195,9 @@ export default function Dropdown({ position = 'bottom-left', children }: Dropdow
 
   return (
     <div>
-      <button ref={buttonRef} onClick={togglePopover}>
-        Открыть
-      </button>
+      <div ref={buttonRef} onClick={togglePopover} style={{ display: 'inline-block' }}>
+        {targetElement}
+      </div>
 
       <div ref={popoverRef} className={popoverStyle}>
         {children}
