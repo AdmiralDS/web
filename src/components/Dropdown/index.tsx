@@ -29,7 +29,6 @@ export default function Dropdown({ position = 'bottom-left', children }: Dropdow
   useEffect(() => {
     if (popoverRef?.current) {
       popoverRef.current.setAttribute('popover', 'manual');
-      console.log('popover attributes:', popoverRef.current?.getAttribute('popover'));
     }
   }, []);
 
