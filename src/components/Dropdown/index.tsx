@@ -195,7 +195,7 @@ export default function Dropdown({ position = 'bottom-left', targetElement, chil
 
   return (
     <div>
-      <div ref={buttonRef} onClick={togglePopover} style={{ display: 'inline-block' }}>
+      <div ref={buttonRef} onClick={togglePopover}>
         {targetElement}
       </div>
 
