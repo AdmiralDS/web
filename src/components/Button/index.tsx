@@ -4,6 +4,7 @@ import styles from './button.module.css';
 import { buttonHover } from './button.css.ts';
 
 export type ButtonProps = {
+  innerRef?: React.LegacyRef<HTMLButtonElement>;
   /**
    * Is this the principal call to action on the page?
    */
@@ -27,11 +28,13 @@ export const Button = ({
   size = 'medium',
   backgroundColor,
   className,
+  innerRef,
   ...props
 }: ButtonProps) => {
   const mode = primary ? styles.primary : styles.secondary;
   return (
     <button
+      ref={innerRef}
       type={type}
       className={['storybook-button', buttonHover, styles[size], mode, className].join(' ')}
       style={{ backgroundColor }}

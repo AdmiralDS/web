@@ -8,4 +8,5 @@ export const popoverStyle = style({
   pointerEvents: 'none',
   position: 'fixed',
   overflow: 'visible',
+  visibility: 'hidden',
 });
