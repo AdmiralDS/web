@@ -5,7 +5,7 @@ export const popoverStyle = style({
   padding: 0,
   border: 'none',
   background: 'none',
-  pointerEvents: 'none',
+  // pointerEvents: 'none',
   position: 'fixed',
   overflow: 'visible',
   visibility: 'hidden',

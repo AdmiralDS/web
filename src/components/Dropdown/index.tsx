@@ -133,7 +133,34 @@ export default function Dropdown({
       popoverElement.setAttribute('popover', 'manual');
       positionPopover(position, targetElement, popoverElement);
       popoverElement.showPopover();
+
       popoverElement.style.visibility = 'visible';
+
+      if (!popoverElement || !targetElement) return;
+
+      let animationFrameId: number;
+      let prevRect = targetElement.getBoundingClientRect();
+
+      const checkPosition = () => {
+        const newRect = targetElement.getBoundingClientRect();
+
+        const changed =
+          prevRect.top !== newRect.top ||
+          prevRect.left !== newRect.left ||
+          prevRect.width !== newRect.width ||
+          prevRect.height !== newRect.height;
+
+        if (changed) {
+          prevRect = newRect;
+          positionPopover(position, targetElement, popoverElement);
+        }
+
+        animationFrameId = requestAnimationFrame(checkPosition);
+      };
+
+      animationFrameId = requestAnimationFrame(checkPosition);
+
+      return () => cancelAnimationFrame(animationFrameId);
     }
   }, [popoverElement, position, targetElement]);
 
