@@ -111,21 +111,21 @@ export type DropdownPosition =
   | 'right-center'
   | 'right-bottom';
 
-interface DropdownProps extends React.ComponentProps<'div'> {
+interface PopoverProps extends React.ComponentProps<'div'> {
   position?: DropdownPosition;
   targetElement: HTMLElement | null;
   children: ReactElement;
   onClickOutside?: (event: MouseEvent) => void;
 }
 
-export default function Dropdown({
+export default function Popover({
   position = 'bottom-left',
   targetElement,
   children,
   className,
   onClickOutside = () => null,
   ...props
-}: DropdownProps) {
+}: PopoverProps) {
   const [popoverElement, setPopoverElement] = useState<HTMLElement | null>(null);
 
   useEffect(() => {

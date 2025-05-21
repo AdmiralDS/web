@@ -1,7 +1,7 @@
 import type { ComponentPropsWithoutRef } from 'react';
 import { useState } from 'react';
 import './App.css';
-import Dropdown from './components/Dropdown';
+import Popover from './components/Popover';
 import { Button } from './components/Button';
 
 export function App({ style, ...props }: ComponentPropsWithoutRef<'div'>) {
@@ -14,7 +14,7 @@ export function App({ style, ...props }: ComponentPropsWithoutRef<'div'>) {
       </Button>
 
       {!isDropOpen ? null : (
-        <Dropdown data-testid="my-drop" targetElement={htmlelement} onClickOutside={() => setDropOpen(false)}>
+        <Popover data-testid="my-drop" targetElement={htmlelement} onClickOutside={() => setDropOpen(false)}>
           <div
             style={{
               padding: '12px 16px',
@@ -28,7 +28,7 @@ export function App({ style, ...props }: ComponentPropsWithoutRef<'div'>) {
           >
             Popover content
           </div>
-        </Dropdown>
+        </Popover>
       )}
     </div>
   );

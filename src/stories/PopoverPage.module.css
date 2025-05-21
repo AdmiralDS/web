@@ -1,0 +1,12 @@
+.pageContainer > * {
+    margin: 32px;
+}
+
+.dropdown {
+    padding: 12px 16px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    background: white;
+    margin: 0;
+    border: none;
+}
